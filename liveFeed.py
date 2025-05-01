@@ -2,25 +2,24 @@ import cv2
 import torch
 from ultralytics import YOLO
 
+# ================== Label Filtering ===================
+DEFAULT_OBJECTS = {"person", "cat", "dog"}
+CUSTOM_OBJECTS = {"Dalek", "Dalek", "sith light", "jedi lightsaber"}
+
+def is_valid_label(label):
+    return label in DEFAULT_OBJECTS or label in CUSTOM_OBJECTS
+
 # ================== Model Loading ===================
+def load_models():
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    print(f"Using device: {device}")
 
-# Automatically select device: GPU (cuda:0) if available, else CPU
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
-print(f"Using device: {device}")
+    default_model = YOLO("yolov8n.pt").to(device)
+    dalek_model = YOLO(r"C:\Github\Software_project2\dalek\weights\best.pt").to(device)
+    lightsaber_model = YOLO(r"C:\Github\Software_project2\lightsaber\weights\best.pt").to(device)
 
-# Load default YOLOv8n model for person, cat, dog
-default_model = YOLO("yolov8n.pt")
-default_model.to(device)
+    return device, default_model, dalek_model, lightsaber_model
 
-# Load your Dalek model
-dalek_model = YOLO(r"C:\Github\Software_project2\dalek\weights\best.pt")
-
-
-dalek_model.to(device)
-
-# Load your Lightsaber model
-lightsaber_model = YOLO(r"C:\Github\Software_project2\lightsaber\weights\best.pt")
-lightsaber_model.to(device)
 
 # ================== Label Filtering ===================
 
@@ -41,7 +40,7 @@ def draw_boxes(results, frame, model, allowed_labels):
                 cv2.putText(frame, f"{label} {confidence:.2f}", (x1, y1 - 10),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-def detect_objects(frame):
+def detect_objects(frame, device, default_model, dalek_model, lightsaber_model):
     results_default = default_model.predict(frame, device=device, verbose=False)
     results_dalek = dalek_model.predict(frame, device=device, verbose=False)
     results_lightsaber = lightsaber_model.predict(frame, device=device, verbose=False)
@@ -52,9 +51,11 @@ def detect_objects(frame):
 
     return frame
 
+
 # ================== Video Streaming ===================
 
 def process_video(video_source=0):
+    device, default_model, dalek_model, lightsaber_model = load_models()
     cap = cv2.VideoCapture(video_source)
 
     while cap.isOpened():
@@ -62,7 +63,7 @@ def process_video(video_source=0):
         if not ret:
             break
 
-        frame = detect_objects(frame)
+        frame = detect_objects(frame, device, default_model, dalek_model, lightsaber_model)
         cv2.imshow("Live Object Detection", frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -70,6 +71,7 @@ def process_video(video_source=0):
 
     cap.release()
     cv2.destroyAllWindows()
+
 
 # ================== Main Run ===================
 
