@@ -13,13 +13,13 @@ default_model = YOLO("yolov8n.pt")
 default_model.to(device)
 
 # Load your Dalek model
-dalek_model = YOLO(r"C:\Users\katij\OneDrive\Documents\Spring 2025\Software\runs\detect\dalek\weights\best.pt")
+dalek_model = YOLO(r"C:\Github\Software_project2\dalek\weights\best.pt")
 
 
 dalek_model.to(device)
 
 # Load your Lightsaber model
-lightsaber_model = YOLO(r"C:\Users\katij\OneDrive\Documents\Spring 2025\Software\runs\detect\lightsaber\weights\best.pt")
+lightsaber_model = YOLO(r"C:\Github\Software_project2\lightsaber\weights\best.pt")
 lightsaber_model.to(device)
 
 # ================== Label Filtering ===================
