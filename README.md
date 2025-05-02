@@ -16,3 +16,4 @@ There are two programs included in the final submission:
         To use: Download video file you want to analyze, then update line 61 with the file path to the video. You can change the output file name on Line 41. Run, then view the output file.
 
 
+Documentation was automatically developed using Pydoc. The pydoc file is labeled 'objectDoc.py' which creates 'objectDoc.html'
