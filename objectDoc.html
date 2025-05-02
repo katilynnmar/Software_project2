@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module objectDoc</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">objectDoc</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cberta%5Cdownloads%5Cobjectdoc.py">c:\users\berta\downloads\objectdoc.py</a></td></tr></table>
+    <p><span class="code">Object&nbsp;Detection&nbsp;Program&nbsp;using&nbsp;YOLOv8<br>
+&nbsp;<br>
+This&nbsp;program&nbsp;uses&nbsp;the&nbsp;YOLOv8&nbsp;object&nbsp;detection&nbsp;model&nbsp;(from&nbsp;the&nbsp;ultralytics&nbsp;package)<br>
+to&nbsp;detect&nbsp;specified&nbsp;objects&nbsp;in&nbsp;a&nbsp;video&nbsp;file.&nbsp;It&nbsp;processes&nbsp;the&nbsp;video&nbsp;frame&nbsp;by&nbsp;frame,<br>
+draws&nbsp;bounding&nbsp;boxes&nbsp;and&nbsp;labels&nbsp;on&nbsp;detected&nbsp;objects,&nbsp;and&nbsp;saves&nbsp;the&nbsp;output&nbsp;as&nbsp;a&nbsp;new&nbsp;video.<br>
+&nbsp;<br>
+Supported&nbsp;detections&nbsp;include:&nbsp;person,&nbsp;cat,&nbsp;dog,&nbsp;dalek,&nbsp;and&nbsp;lightsaber.<br>
+&nbsp;<br>
+Dependencies:<br>
+-&nbsp;OpenCV&nbsp;(cv2)<br>
+-&nbsp;ultralytics&nbsp;(YOLO)<br>
+&nbsp;<br>
+Author:&nbsp;Your&nbsp;Name<br>
+Date:&nbsp;YYYY-MM-DD</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="cv2.html">cv2</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-detect_objects"><strong>detect_objects</strong></a>(frame)</dt><dd><span class="code">Detect&nbsp;and&nbsp;annotate&nbsp;specified&nbsp;objects&nbsp;in&nbsp;a&nbsp;video&nbsp;frame.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame&nbsp;(numpy.ndarray):&nbsp;The&nbsp;video&nbsp;frame&nbsp;to&nbsp;process.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;numpy.ndarray:&nbsp;The&nbsp;frame&nbsp;with&nbsp;bounding&nbsp;boxes&nbsp;and&nbsp;labels&nbsp;drawn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;detected&nbsp;objects.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;objects&nbsp;listed&nbsp;in&nbsp;OBJECTS_TO_DETECT&nbsp;will&nbsp;be&nbsp;annotated.</span></dd></dl>
+ <dl><dt><a name="-process_video"><strong>process_video</strong></a>(video_path)</dt><dd><span class="code">Process&nbsp;a&nbsp;video&nbsp;file,&nbsp;detecting&nbsp;and&nbsp;annotating&nbsp;specified&nbsp;objects.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;video_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;input&nbsp;video&nbsp;file.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IOError:&nbsp;If&nbsp;the&nbsp;video&nbsp;file&nbsp;cannot&nbsp;be&nbsp;opened.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;processed&nbsp;video&nbsp;is&nbsp;saved&nbsp;as&nbsp;'sillyKitty.avi'&nbsp;in&nbsp;the&nbsp;current&nbsp;directory.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Press&nbsp;'q'&nbsp;during&nbsp;playback&nbsp;to&nbsp;quit&nbsp;early.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>OBJECTS_TO_DETECT</strong> = {'cat', 'dalek', 'dog', 'lightsaber', 'person'}<br>
+<strong>model</strong> = YOLO(
+  (model): DetectionModel(
+    (model): Se...(1, 1), bias=False)
+        )
+      )
+    )
+  )
+)</td></tr></table>
+</body></html>
